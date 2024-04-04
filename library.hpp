@@ -1,6 +1,7 @@
 #ifndef _LIBRARY_HPP
 #define _LIBRARY_HPP
 
+#include "user.hpp"
 #include <bits/stdc++.h>
 
 // Singleton
@@ -24,7 +25,7 @@ private:
    std::string name;
    unsigned short year;
 
-   //vector<Users*> users;
+   std::vector<User*> users;
    //vector<Books*> books;
 };
 
