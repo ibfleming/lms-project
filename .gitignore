@@ -1,0 +1,6 @@
+# Ignore Visual Studio Code related files
+.vscode/
+
+# Ignore compilation artifacts
+*.o
+*.out
