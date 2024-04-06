@@ -9,11 +9,12 @@ int main(int argc, char* argv[]) {
 
    Library& library = Library::get_instance();
 
-   library.set_name("Library of Congress");
-   library.set_year(1800);
+   library.set_name("Library of Alexandria");
+   library.set_year(285, "BC");
 
    cout << endl;
    library.display();
+   cout << endl;
 
    User user1("Jesus Christ", 33);
    User user2("John the Baptist", 35);
@@ -22,16 +23,6 @@ int main(int argc, char* argv[]) {
    library.add_user(&user1);
    library.add_user(&user2);
    library.add_user(&user3);
-
-   cout << endl;
-   library.display_users();
-   cout << endl;
-
-   library.delete_user(user3.get_id());
-
-   cout << endl;
-   library.display_users();
-   cout << endl;
 
    return 0;
 }

@@ -10,6 +10,9 @@ using namespace std;
  * @param[in] age The age of the user.
  */
 User::User(const string& name, unsigned short age) : name(name), age(age) {
+    if( name == "null"  && age == 0) {
+        return;
+    }
     id = generate_uuid();
     premium = false;
 }

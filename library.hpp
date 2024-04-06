@@ -16,18 +16,25 @@ public:
 
    // Setters
    void set_name(const std::string& name);
-   void set_year(unsigned short year);
+   void set_year(unsigned short year, std::string era);
 
    // Getters
    const std::vector<User*>& get_users() const;
    const std::string& get_name() const;
-   const short get_year() const;
+   const std::pair<unsigned short, std::string> get_established_year() const;
 
+   // Add
    void add_user(User* user);
 
+   // Delete
    void delete_user(User* user);
    void delete_user(const std::string& name);
    void delete_user(const boost::uuids::uuid& id);
+
+   // Find
+   User& find_user(User* user) const;
+   User& find_user(const std::string& name) const;
+   User& find_user(const boost::uuids::uuid& id) const;
 private:
    Library();
    ~Library() = default;
@@ -35,9 +42,10 @@ private:
    Library& operator=(const Library&) = delete;
 
    std::string name;
-   unsigned short year;
+   std::pair<unsigned short, std::string> established_year;
 
    std::vector<User*> users;
+   static User empty_user;
    //vector<Books*> books;
 };
 
