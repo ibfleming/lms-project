@@ -10,7 +10,20 @@ public:
    User(const std::string& name, unsigned short age);
    ~User() = default;
 
+   // Print
    void display() const;
+
+   // Setters
+   void set_premium(bool premium);
+   void set_name(const std::string& name);
+   void set_age(unsigned short age);
+
+   // Getters
+   const boost::uuids::uuid get_id() const;
+   const bool get_premium() const;
+   const std::string get_name() const;
+   const unsigned short get_age() const;
+
 private:
    std::string name;
    uuid id;
