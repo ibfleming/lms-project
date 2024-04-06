@@ -46,7 +46,8 @@ private:
 
    std::vector<User*> users;
    static User empty_user;
-   //vector<Books*> books;
+
+   //std::vector<Books*> books;
 };
 
 #endif

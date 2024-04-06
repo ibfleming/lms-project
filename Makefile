@@ -3,8 +3,8 @@
 TARGET = lms
 CC = g++
 CFLAGS = -Wall -g
-SRCS = library.cpp user.cpp util.cpp main.cpp
-HDRS = library.hpp user.hpp util.hpp
+SRCS = library.cpp user.cpp book.cpp util.cpp main.cpp
+HDRS = library.hpp user.hpp book.hpp util.hpp
 OBJS = $(SRCS:.cpp=.o)
 
 $(TARGET): $(OBJS)

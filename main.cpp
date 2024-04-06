@@ -2,6 +2,7 @@
 
 #include "library.hpp"
 #include "user.hpp"
+#include "book.hpp"
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -23,6 +24,12 @@ int main(int argc, char* argv[]) {
    library.add_user(&user1);
    library.add_user(&user2);
    library.add_user(&user3);
+
+   Book book1("The Holy Bible", {"Lord God Almighty", "Jesus Christ"}, "The Beginning of Time");
+   Book book2("The False Quran", {"Muhammad"}, pair(610, "AD/CE"));
+   book1.display();
+   cout << endl;
+   book2.display();
 
    return 0;
 }
