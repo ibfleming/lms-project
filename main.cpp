@@ -6,7 +6,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main(int argc, char* argv[]) {
+int main() {
 
    Library& library = Library::get_instance();
 
@@ -25,11 +25,19 @@ int main(int argc, char* argv[]) {
    library.add_user(&user2);
    library.add_user(&user3);
 
-   Book book1("The Holy Bible", {"Lord God Almighty", "Jesus Christ"}, "The Beginning of Time");
-   Book book2("The False Quran", {"Muhammad"}, pair(610, "AD/CE"));
+   Book book1("The Holy Bible", {"Lord God Almighty", "Jesus Christ"}, 1200, "The Beginning of Time");
+   Book book2("The False Quran", {"Muhammad"}, 700, pair(632, "AD/CE"));
    book1.display();
    cout << endl;
    book2.display();
+
+   cout << endl;
+   book1.rent_to(&user1);
+   cout << endl;
+
+   book1.get_current_user();
+
+   book2.get_current_user();
 
    return 0;
 }

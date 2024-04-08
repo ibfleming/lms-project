@@ -64,7 +64,7 @@ void User::set_age(unsigned short age) {
  * Get the premium status of the user.
  * @return True if the user is premium, false otherwise.
 */
-const bool User::get_premium() const {
+bool User::get_premium() const {
     return premium;
 }
 
@@ -72,7 +72,7 @@ const bool User::get_premium() const {
  * Get the name of the user.
  * @return The name of the user.
 */
-const std::string User::get_name() const {
+std::string User::get_name() const {
     return name;
 }
 
@@ -80,6 +80,6 @@ const std::string User::get_name() const {
  * Get the age of the user.
  * @return The age of the user.
 */
-const unsigned short User::get_age() const {
+unsigned short User::get_age() const {
     return age;
 }

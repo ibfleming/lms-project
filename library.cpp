@@ -59,7 +59,7 @@ Library::display() const {
 void 
 Library::display_users() const {
    cout << "USERS:" << endl;
-   size_t length;
+   size_t length = 0;
    for (auto it = users.begin(); it != users.end(); ++it) {
       length = to_string((*it)->get_id()).length();
       cout << "+" << std::string(length + 14, '-') << "+" << endl;

@@ -3,6 +3,7 @@
 TARGET = lms
 CC = g++
 CFLAGS = -Wall -g
+#-Wextra -Werror -pedantic
 SRCS = library.cpp user.cpp book.cpp util.cpp main.cpp
 HDRS = library.hpp user.hpp book.hpp util.hpp
 OBJS = $(SRCS:.cpp=.o)

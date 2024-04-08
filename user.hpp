@@ -20,9 +20,9 @@ public:
 
    // Getters
    const boost::uuids::uuid get_id() const;
-   const bool get_premium() const;
-   const std::string get_name() const;
-   const unsigned short get_age() const;
+   bool get_premium() const;
+   std::string get_name() const;
+   unsigned short get_age() const;
 
 private:
    std::string name;
