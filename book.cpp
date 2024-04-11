@@ -62,10 +62,20 @@ Book::rent_to(User* user) {
 /**
  * Get the current user of the book.
 */
-void Book::get_current_user() const {
+User* Book::get_current_user() const {
    if(_current_user == nullptr) {
       cout << "No user has rented this book." << endl;
+      return nullptr;
    } else {
       cout << "The current user is " << _current_user->get_name() << "." << endl;
+      return _current_user;
    }
+}
+
+/**
+ * Get the current page of the book.
+*/
+unsigned short Book::get_current_page() const {
+   cout << "The current page is " << _current_page << "." << endl;
+   return _current_page;
 }

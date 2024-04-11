@@ -9,7 +9,7 @@ HDRS = library.hpp user.hpp book.hpp util.hpp
 OBJS = $(SRCS:.cpp=.o)
 
 $(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET).out
+	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET)
 
 %.o: %.cpp $(HDRS)
 	$(CC) $(CFLAGS) -c $< -o $@

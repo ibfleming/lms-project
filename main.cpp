@@ -6,7 +6,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+void display_hud();
+
 int main() {
+
+   /*
 
    Library& library = Library::get_instance();
 
@@ -36,8 +40,71 @@ int main() {
    cout << endl;
 
    book1.get_current_user();
-
    book2.get_current_user();
+   
+   */
+
+   display_hud();
+
+
+
+
+
+
+
+
+
 
    return 0;
+}
+
+void display_hud() {
+
+   #define TAB 4
+
+   size_t ui_width   = 48;
+   string ui_title   = "Library Management System";
+   string ui_author  = "by Ian Fleming";
+   string ui_version = "Version 1.0";
+
+   cout << endl;
+
+   // Header
+
+   cout << '+' << string(ui_width, '-') << '+' << endl;
+   cout << '|' << string((ui_width - ui_title.length()) / 2, ' ') << ui_title << string((ui_width - ui_title.length()) / 2 + 1, ' ') << '|' << endl;
+   cout << '|' << string((ui_width - ui_author.length()) / 2 - 1, ' ') << ui_author << string((ui_width - ui_author.length()) / 2 + 1, ' ') << '|' << endl;
+   cout << '|' << string((ui_width - ui_version.length()) / 2, ' ') << ui_version << string((ui_width - ui_version.length()) / 2 + 1, ' ') << '|' << endl;
+   cout << '|' << string(ui_width, '-') << '|' << endl;\
+   cout << '|' << string(ui_width, ' ') << '|' << endl;
+
+   // Body
+
+   // 0 ) Create custom library
+   // 1 ) Create premade library
+   // 2 ) Create custom user
+   // 3 ) Create premade user
+   // 4 ) Display library info
+   // 5 ) Display user info
+
+   string ui_menu[] = {
+      "0 - Create custom library",
+      "1 - Create premade library",
+      "2 - Create custom user",
+      "3 - Create premade user",
+      "4 - Display library info",
+      "5 - Display user info"
+   };
+
+    size_t ui_menu_size = sizeof(ui_menu) / sizeof(ui_menu[0]);
+    for(size_t i = 0; i < ui_menu_size; i++) {
+        cout << '|' << setw(2) << left << string((ui_width - ui_title.length()) / 2, ' ') << setw(ui_width - 11) << left << ui_menu[i] << '|' << endl; // Added 4 spaces for padding
+    }
+
+   cout << '|' << string(ui_width, ' ') << '|' << endl;
+   cout << '+' << string(ui_width, '-') << '+' << endl;
+
+   cout << endl;
+
+
 }
