@@ -15,7 +15,7 @@ $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f *~ $(TARGET).out $(OBJS) | clear
+	rm -f *~ $(TARGET) $(OBJS) | clear
 
 tar: $(HDRS) $(SRCS) Makefile
 	tar -cvf $(TARGET).tar $(HDRS) $(SRCS) Makefile | clear
