@@ -44,17 +44,46 @@ int main() {
    
    */
 
+   cout << endl;
    display_hud();
-
-
-
-
-
-
-
-
-
-
+   bool running = true;
+   while(running) {
+      cout << endl;
+      cout << "> ";
+      char command;
+      cin >> command;
+      cout << endl;
+      switch(command) {
+         case '0':
+            cout << "Creating custom library..." << endl;
+            break;
+         case '1':
+            cout << "Creating premade library..." << endl;
+            break;
+         case '2':
+            cout << "Creating custom user..." << endl;
+            break;
+         case '3':
+            cout << "Creating premade user..." << endl;
+            break;
+         case '4':
+            cout << "Displaying library info..." << endl;
+            break;
+         case '5':
+            cout << "Displaying user info..." << endl;
+            break;
+         case 'd':
+            display_hud();
+            break;
+         case 'q':
+            cout << "Exiting program..." << endl;
+            running = false;
+            break;
+         default:
+            cout << "Invalid command." << endl;
+            break;
+      }
+   }
    return 0;
 }
 
@@ -67,8 +96,6 @@ void display_hud() {
    string ui_author  = "by Ian Fleming";
    string ui_version = "Version 1.0";
 
-   cout << endl;
-
    // Header
 
    cout << '+' << string(ui_width, '-') << '+' << endl;
@@ -80,20 +107,15 @@ void display_hud() {
 
    // Body
 
-   // 0 ) Create custom library
-   // 1 ) Create premade library
-   // 2 ) Create custom user
-   // 3 ) Create premade user
-   // 4 ) Display library info
-   // 5 ) Display user info
-
    string ui_menu[] = {
       "0 - Create custom library",
       "1 - Create premade library",
       "2 - Create custom user",
       "3 - Create premade user",
       "4 - Display library info",
-      "5 - Display user info"
+      "5 - Display user info",
+      "d - Display this menu",
+      "q - Exit program"
    };
 
     size_t ui_menu_size = sizeof(ui_menu) / sizeof(ui_menu[0]);
@@ -103,8 +125,4 @@ void display_hud() {
 
    cout << '|' << string(ui_width, ' ') << '|' << endl;
    cout << '+' << string(ui_width, '-') << '+' << endl;
-
-   cout << endl;
-
-
 }
