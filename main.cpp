@@ -3,15 +3,16 @@
 #include "library.hpp"
 #include "user.hpp"
 #include "book.hpp"
-#include <bits/stdc++.h>
+#include "gui.hpp"
 using namespace std;
 
 void display_hud();
 
 int main() {
 
-   /*
+   Library* library = nullptr;
 
+   /*
    Library& library = Library::get_instance();
 
    library.set_name("Library of Alexandria");
@@ -41,7 +42,6 @@ int main() {
 
    book1.get_current_user();
    book2.get_current_user();
-   
    */
 
    cout << endl;
@@ -55,10 +55,10 @@ int main() {
       cout << endl;
       switch(command) {
          case '0':
-            cout << "Creating custom library..." << endl;
+            display_library_menu(true);
             break;
          case '1':
-            cout << "Creating premade library..." << endl;
+            display_library_menu(false);
             break;
          case '2':
             cout << "Creating custom user..." << endl;
@@ -85,44 +85,4 @@ int main() {
       }
    }
    return 0;
-}
-
-void display_hud() {
-
-   #define TAB 4
-
-   size_t ui_width   = 48;
-   string ui_title   = "Library Management System";
-   string ui_author  = "by Ian Fleming";
-   string ui_version = "Version 1.0";
-
-   // Header
-
-   cout << '+' << string(ui_width, '-') << '+' << endl;
-   cout << '|' << string((ui_width - ui_title.length()) / 2, ' ') << ui_title << string((ui_width - ui_title.length()) / 2 + 1, ' ') << '|' << endl;
-   cout << '|' << string((ui_width - ui_author.length()) / 2 - 1, ' ') << ui_author << string((ui_width - ui_author.length()) / 2 + 1, ' ') << '|' << endl;
-   cout << '|' << string((ui_width - ui_version.length()) / 2, ' ') << ui_version << string((ui_width - ui_version.length()) / 2 + 1, ' ') << '|' << endl;
-   cout << '|' << string(ui_width, '-') << '|' << endl;\
-   cout << '|' << string(ui_width, ' ') << '|' << endl;
-
-   // Body
-
-   string ui_menu[] = {
-      "0 - Create custom library",
-      "1 - Create premade library",
-      "2 - Create custom user",
-      "3 - Create premade user",
-      "4 - Display library info",
-      "5 - Display user info",
-      "d - Display this menu",
-      "q - Exit program"
-   };
-
-    size_t ui_menu_size = sizeof(ui_menu) / sizeof(ui_menu[0]);
-    for(size_t i = 0; i < ui_menu_size; i++) {
-        cout << '|' << setw(2) << left << string((ui_width - ui_title.length()) / 2, ' ') << setw(ui_width - 11) << left << ui_menu[i] << '|' << endl; // Added 4 spaces for padding
-    }
-
-   cout << '|' << string(ui_width, ' ') << '|' << endl;
-   cout << '+' << string(ui_width, '-') << '+' << endl;
 }
