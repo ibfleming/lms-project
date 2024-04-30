@@ -8,11 +8,11 @@ using namespace std;
 
 void display_hud();
 
-int main() {
+int main(void) {
 
    Library* library = nullptr;
 
-   /*
+      /*
    Library& library = Library::get_instance();
 
    library.set_name("Library of Alexandria");
@@ -46,42 +46,59 @@ int main() {
 
    cout << endl;
    display_hud();
+
    bool running = true;
-   while(running) {
+   while (running) {
       cout << endl;
       cout << "> ";
-      char command;
-      cin >> command;
+      
+      string input;
+      cin >> input;
+
       cout << endl;
-      switch(command) {
-         case '0':
-            display_library_menu(true);
-            break;
-         case '1':
-            display_library_menu(false);
-            break;
-         case '2':
-            cout << "Creating custom user..." << endl;
-            break;
-         case '3':
-            cout << "Creating premade user..." << endl;
-            break;
-         case '4':
-            cout << "Displaying library info..." << endl;
-            break;
-         case '5':
-            cout << "Displaying user info..." << endl;
-            break;
-         case 'd':
-            display_hud();
-            break;
-         case 'q':
-            cout << "Exiting program..." << endl;
-            running = false;
-            break;
-         default:
-            cout << "Invalid command." << endl;
-            break;
+
+      if (input.length() == 1) { 
+         char command = input[0];
+         switch (command) {
+               case '0':
+                  library = display_library_menu(true);
+                  break;
+               case '1':
+                  library = display_library_menu(false);
+                  break;
+               case '2':
+                  cout << "Creating custom user..." << endl;
+                  break;
+               case '3':
+                  cout << "Creating premade user..." << endl;
+                  break;
+               case '4':
+                  cout << "Displaying library info..." << endl;
+                  if (library != nullptr) library->display();
+                  else cout << "No library created." << endl;
+                  break;
+               case '5':
+                  cout << "Displaying user info..." << endl;
+                  break;
+               case 'd':
+                  display_hud();
+                  break;
+               case 'q':
+                  cout << "Exiting program..." << endl;
+                  running = false;
+                  break;
+               default:
+                  cout << "Invalid command." << endl;
+                  break;
+         }
+      } else {
+         if (input == "clear") {
+               // Clear the console
+               cout << "\033[2J\033[1;1H";
+               display_hud();
+         } else {
+               cout << "Invalid command." << endl;
+         }
       }
    }
    return 0;

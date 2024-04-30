@@ -10,5 +10,8 @@ using namespace std;
 using namespace boost::uuids;
 
 uuid generate_uuid();
+bool is_alpha(const string& str);
+bool is_num(const string& str);
+bool is_era(const string& str);
 
 #endif

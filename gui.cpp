@@ -1,6 +1,7 @@
 // gui.cpp
 
 #include "gui.hpp"
+#include "util.hpp"
 using namespace std;
 
 #define TAB 4
@@ -31,12 +32,13 @@ void display_hud() {
       "4 - Display library info",
       "5 - Display user info",
       "d - Display this menu",
+      "clear - Clear console",
       "q - Exit program"
    };
 
     size_t ui_menu_size = sizeof(ui_menu) / sizeof(ui_menu[0]);
     for(size_t i = 0; i < ui_menu_size; i++) {
-        cout << '|' << setw(2) << left << string((ui_width - ui_title.length()) / 2, ' ') << setw(ui_width - 11) << left << ui_menu[i] << '|' << endl; // Added 4 spaces for padding
+        cout << '|' << setw(2) << setfill(' ') << left << string((ui_width - ui_title.length()) / 2, ' ') << setw(ui_width - 11) << left << ui_menu[i] << '|' << endl; // Added 4 spaces for padding
     }
 
    cout << '|' << string(ui_width, ' ') << '|' << endl;
@@ -56,6 +58,7 @@ Library* display_library_menu(bool custom) {
    if(custom) {
 
       string name;
+      string year_input;
       unsigned short year;
       string era;
 
@@ -63,13 +66,25 @@ Library* display_library_menu(bool custom) {
       cin.ignore();
       getline(cin, name);
 
-      cout << "Enter library year: ";
-      cin >> year;
+      if( !is_alpha(name) ) {
+         cout << "Invalid library name." << endl;
+         return nullptr;
+      }
 
-      cout << "Enter library era: " << string(1, ' ');
-      cin.ignore();
+      cout << "Enter library year: ";
+      getline(cin, year_input);
+
+      if( !is_num(year_input) ) {
+         cout << "Invalid library year." << endl;
+         return nullptr;
+      }
+
+      stringstream(year_input) >> year;
+
+      cout << "Enter library era (AD or BC only): ";
       getline(cin, era);
 
+      // Set values
       library.set_name(name);
       library.set_year(year, era);
 
